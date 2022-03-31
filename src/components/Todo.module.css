@@ -1,0 +1,22 @@
+
+.todo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+.todoContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    margin:0 15px;
+}
+.todoContent p{
+    padding: 0 15px;
+}
+
+.changeTodo{
+    text-decoration: line-through;
+}
