@@ -1,21 +1,21 @@
-import React  from 'react'
+import React from 'react'
 import style from './Todo.module.css'
 import { IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Todo = ({todos, deleteTodo}) => {
-  //const [toggle, setToggle] = useState(false)
+const Todo = ({todos, deleteTodo, setTodos}) => {
 
-//   const handler = index => {
-//       setToggle(!toggle)
-//   }
-//value={toggle} onChange={() => handler(index)}
-//className={toggle ? style.changeTodo : ''}
+  const handler = index => {
+    const newTodo = [...todos];
+    newTodo[index].isCompleted = !newTodo[index].isCompleted;
+    setTodos(newTodo);
+  }
+
   return  <>
     {todos.map((todo, index) =><div className={style.todo} key={index}>
         <div className={style.todoContent}>
-          <input type="checkbox" />
-          <p >{todo}</p>
+          <input type="checkbox" value={todo.isCompleted} onChange={() => handler(index)}/>
+          <p className={todo.isCompleted ? style.changeTodo : ''}>{todo.text}</p>
         </div>  
         <IconButton aria-label="delete" onClick={() => deleteTodo(index)}>
           <DeleteIcon/>

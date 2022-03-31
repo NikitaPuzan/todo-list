@@ -4,7 +4,18 @@ import TitleTodo from './TitleTodo'
 import Todo from './Todo'
 
 const Content = () => {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(
+    [{
+      text: "Learn React",
+      isCompleted: false
+    },{
+      text: "Learn Redux-saga, Toolkit",
+      isCompleted: false
+    },{
+      text: "Learn English",
+      isCompleted: false
+    }]
+  )
   const [text, setText] = useState('')
 
   const changeTodo = e => {
@@ -12,7 +23,7 @@ const Content = () => {
   }
   const addTodo = (e) => {
     if (e.keyCode === 13) {
-      setTodos([text, ...todos])
+      setTodos([{text}, ...todos])
       setText('')
     }
   }
@@ -23,7 +34,7 @@ const Content = () => {
   return (
     <div className={style.container}>
       <TitleTodo text={text}  changeTodo={changeTodo} addTodo={addTodo}/>
-      <Todo todos={todos} deleteTodo={deleteTodo} />
+      <Todo todos={todos} deleteTodo={deleteTodo} setTodos={setTodos}/>
     </div>
   );
 };
