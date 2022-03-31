@@ -3,6 +3,7 @@ import style from './Todo.module.css'
 import { IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 
+
 const Todo = ({todos, deleteTodo, setTodos}) => {
 
   const handler = index => {
@@ -17,7 +18,7 @@ const Todo = ({todos, deleteTodo, setTodos}) => {
           <input type="checkbox" value={todo.isCompleted} onChange={() => handler(index)}/>
           <p className={todo.isCompleted ? style.changeTodo : ''}>{todo.text}</p>
         </div>  
-        <IconButton aria-label="delete" onClick={() => deleteTodo(index)}>
+        <IconButton aria-label="delete" color="error" onClick={() => deleteTodo(index)}>
           <DeleteIcon/>
         </IconButton>
       </div>)}
