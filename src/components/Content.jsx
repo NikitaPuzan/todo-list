@@ -8,10 +8,10 @@ const Content = () => {
     [{
       text: "Learn React",
       isCompleted: false
-    },{
+    }, {
       text: "Learn Redux-saga, Toolkit",
       isCompleted: false
-    },{
+    }, {
       text: "Learn English",
       isCompleted: false
     }]
@@ -22,18 +22,20 @@ const Content = () => {
     setText(e.target.value)
   }
   const addTodo = (e) => {
-    if (e.keyCode === 13) {
-      setTodos([{text}, ...todos])
-      setText('')
+    if (e.target.value) {
+      if (e.keyCode === 13) {
+        setTodos([{text}, ...todos])
+        setText('')
+      }
     }
   }
   const deleteTodo = indexToDelete => {
-      setTodos(todos.filter((_, index) => index !== indexToDelete))
+    setTodos(todos.filter((_, index) => index !== indexToDelete))
   }
-  
+
   return (
     <div className={style.container}>
-      <TitleTodo text={text}  changeTodo={changeTodo} addTodo={addTodo}/>
+      <TitleTodo text={text} changeTodo={changeTodo} addTodo={addTodo}/>
       <Todo todos={todos} deleteTodo={deleteTodo} setTodos={setTodos}/>
     </div>
   );
