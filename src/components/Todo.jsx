@@ -2,7 +2,6 @@ import React from 'react'
 import style from './Todo.module.css'
 import {IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 
 
 const Todo = ({todos, deleteTodo, setTodos}) => {
